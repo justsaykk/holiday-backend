@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT;
+const Holiday = require("./models/model_holidays");
 
 //Middlewares
 app.use(express.json());
@@ -26,7 +27,7 @@ mongoose.connection.once("open", () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello World 2");
 });
 
 //LISTEN

@@ -1,7 +1,8 @@
 // Declarations
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const holidaySchema = mongoose.Schema({
+const holidaySchema = new Schema({
   name: { type: String, required: true },
   celebrated: { type: Boolean, default: false },
   description: { type: String, default: "Default String" },
@@ -9,4 +10,6 @@ const holidaySchema = mongoose.Schema({
   tags: [{ type: String }],
 });
 
-module.exports = mongoose.model("Holiday", holidaySchema);
+const Holiday = mongoose.model("Holiday", holidaySchema);
+
+module.exports = Holiday;
