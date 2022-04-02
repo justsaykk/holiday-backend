@@ -10,8 +10,8 @@ const Holiday = require("./models/model_holidays");
 const HolidayController = require("./controllers/holidaysController");
 
 //Middlewares
-app.use("/api/holidays", HolidayController);
 app.use(cors());
+app.use("/api/holidays", HolidayController);
 app.use(express.json());
 
 //Error / Disconnection
