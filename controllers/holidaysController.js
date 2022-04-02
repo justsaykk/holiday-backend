@@ -8,15 +8,17 @@ router.get("/", function (req, res) {
 });
 
 router.get("/seed", async (req, res) => {
-  await Holiday.deleteMany({});
-  await Holiday.insertMany([
+  const Holidays = [
     {
       name: "New Year's Day",
     },
     {
       name: "Good Friday",
     },
-  ]);
+  ];
+
+  await Holiday.deleteMany({});
+  await Holiday.insertMany(Holidays);
   res.send("holidays seeded");
 });
 
