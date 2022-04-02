@@ -1,6 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -10,6 +11,7 @@ const HolidayController = require("./controllers/holidaysController");
 
 //Middlewares
 app.use("/api/holidays", HolidayController);
+app.use(cors());
 app.use(express.json());
 
 //Error / Disconnection
