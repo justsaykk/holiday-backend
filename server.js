@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
 const Holiday = require("./models/model_holidays");
+const HolidayController = require("./controllers/holidaysController");
 
 //Middlewares
+app.use("/api/holidays", HolidayController);
 app.use(express.json());
 
 //Error / Disconnection
@@ -18,7 +21,7 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongo disconnected");
 });
 
-mongoose.connect("mongodb://localhost:27017/holidays", {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
 });
 
@@ -27,7 +30,7 @@ mongoose.connection.once("open", () => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World 2");
+  res.send("Hello World 3");
 });
 
 //LISTEN
