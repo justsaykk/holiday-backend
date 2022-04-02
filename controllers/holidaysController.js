@@ -22,4 +22,14 @@ router.get("/seed", async (req, res) => {
   res.send(Holidays);
 });
 
+// Create Route
+router.post("/", async (req, res) => {
+  try {
+    const createdHoliday = await Holiday.create(req.body);
+    res.status(200).send(createdHoliday);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;

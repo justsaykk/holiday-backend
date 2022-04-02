@@ -11,8 +11,8 @@ const HolidayController = require("./controllers/holidaysController");
 
 //Middlewares
 app.use(cors());
-app.use("/api/holidays", HolidayController);
 app.use(express.json());
+app.use("/api/holidays", HolidayController);
 
 //Error / Disconnection
 mongoose.connection.on("error", (err) => {
