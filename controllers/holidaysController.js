@@ -19,7 +19,7 @@ router.get("/seed", async (req, res) => {
 
   await Holiday.deleteMany({});
   await Holiday.insertMany(Holidays);
-  res.send("holidays seeded");
+  res.send(Holidays);
 });
 
 module.exports = router;
